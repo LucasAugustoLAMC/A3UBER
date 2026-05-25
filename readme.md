@@ -1,7 +1,3 @@
-Aqui está o passo a passo completo organizado de forma clara:
-
----
-
 ## Fase 0 — Preparar o ambiente
 
 **Passo 1: Instalar o Python**
@@ -71,8 +67,10 @@ Clique na aba "Execute SQL". Abra o arquivo `modelo_sql_transporte.sql` em um bl
 Ainda na aba Execute SQL, rode:
 ```sql
 SELECT * FROM vw_kpi_status;
+SELECT * FROM vw_receita_por_veiculo;
+SELECT * FROM vw_receita_por_local LIMIT 10;
 ```
-Deve retornar 5 linhas com os status das corridas e suas métricas.
+Deve retornar com os status das corridas e suas métricas.
 
 ---
 
@@ -104,20 +102,3 @@ Arquivo → Salvar como → `dashboard_transporte.pbix` na pasta do projeto.
 
 **Passo 17: Duplo clique no HTML**
 Simplesmente dê duplo clique em `relatorio_storytelling.html`. Abre direto no Chrome/Edge sem precisar de nada instalado. Os gráficos são interativos e funcionam completamente offline.
-
----
-
-## Resultado final da pasta entregável
-
-```
-projeto_transporte/
-├── Pasta1.xlsx                   ← dado original
-├── etl_transporte_app.ipynb      ← Camada 1: Python ETL
-├── transporte_limpo.csv          ← gerado pelo Python
-├── transporte.db                 ← gerado pelo Python
-├── modelo_sql_transporte.sql     ← Camada 2: SQL + Views
-├── dashboard_transporte.pbix     ← Camada 3: Power BI
-└── relatorio_storytelling.html   ← Storytelling executivo
-```
-
-A ordem correta é sempre: **Python primeiro → SQL segundo → Power BI por último**, pois cada etapa depende dos arquivos gerados pela anterior.
